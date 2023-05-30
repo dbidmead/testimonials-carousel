@@ -11,6 +11,7 @@
   padding: 0;
   box-sizing: border-box;
   transition: all 0.3s ease;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -62,7 +63,7 @@ body {
   gap: 2em;
   width: 80%;
   max-width: 1110px;
-  overflow: auto;
+  overflow: hidden; /* can still manipulate scroll position in JS */
   height: 75%;
   position: relative;
 }
@@ -125,7 +126,6 @@ span {
   align-items: center;
   justify-content: space-between;
   width: 3.5em;
-  /* border: 1px solid red; */
   height: 1.75em;
   padding: 0.75em;
   border-radius: 1em;
@@ -154,4 +154,78 @@ span {
   color: hsl(282, 45%, 44%);
   text-decoration: none;
   font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  body,
+  html {
+    overflow: hidden;
+  }
+  .background > img {
+    max-width: 80%;
+  }
+
+  #bg-main {
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  #bg-quote {
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2em;
+  }
+
+  .testimonials-content {
+    gap: 2em;
+    max-width: 325px;
+    width: 80%;
+    height: 80%;
+  }
+
+  .testimonial {
+    flex-direction: column;
+    height: 90%;
+  }
+
+  .avatar {
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+    width: 85%;
+  }
+
+  .testimonial-txt {
+    z-index: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.55em;
+    justify-content: flex-end;
+    height: 100%;
+    gap: 1.25em;
+  }
+
+  .source {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+    line-height: 1em;
+  }
+
+  .nav-btns {
+    bottom: unset;
+    top: 20rem;
+    height: 1.25em;
+    width: 2.75em;
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 0;
+  }
 }
